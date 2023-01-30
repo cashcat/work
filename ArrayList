@@ -53,10 +53,10 @@ public class ArrayList<T> {
             throw new IllegalArgumentException("Data should not be null");
         }
         if (size == backingArray.length) {
+            T[] arr = (T[]) (new Object[backingArray.length * 2]);
             // 内存新分配后，所有数据拷贝到新内存区，但index及以后数据在后面会挪动
             // 此操作会导致后半部分数据重复拷贝，存在性能问题
             /*
-            T[] arr = (T[]) (new Object[backingArray.length * 2]);
             for (int i = 0; i < backingArray.length; i++) {
                 arr[i] = backingArray[i];
             }
